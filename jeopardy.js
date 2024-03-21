@@ -13,7 +13,6 @@ async function setupGame() {
       limit: 100,
     },
   });
-  //console.log(baseCategories);
   let clues = [];
   let categoryNames = getUsedCategories(baseCategories);
   const cluesList = await axios.get(clueUrl, {
@@ -37,7 +36,6 @@ function getUsedCategories(baseCats) {
     randomNames.push(allCategories[random]);
   }
   let categoriesUsed = [];
-  // push each id into an array
   for (ct of randomNames) {
     categoriesUsed.push(ct.category);
   }
@@ -101,9 +99,7 @@ function buildGameBoard() {
 }
 
 function handleClick(e) {
-  // x and y are used to change the data displayed into the correct questions and answers
   let x = e.target.id[0];
-  let y = e.target.id[2];
   // if answer is displayed, do nothing
   if (e.target.classList.contains("answer")) {
     return;
